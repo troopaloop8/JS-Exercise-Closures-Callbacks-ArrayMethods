@@ -134,8 +134,11 @@ function processLastItem(stringList, callback) {
 */
 function processSum(numberList, callback) {
   /* CODE HERE */
-  const add = (a, b) => a + b;
-  return callback(numberList.reduce(add))
+  let sum = 0
+  for (let i = 0; i < numberList.length; i++) {
+    sum = numberList[i] + sum
+  }
+  return callback(sum);  /// tried to use reduce but could'nt get it to pass the tests
 }
 
 
@@ -174,11 +177,34 @@ function processSum(numberList, callback) {
  * [2] Invoking `processProduct` passing 25 and 0 and `(num) => num + 1000`,
  * should return 1000.
 */
-function processProduct(/* CODE HERE */) {
+function processProduct(num1, num2, callback) {
   /* CODE HERE */
+  return callback(num1 * num2);
 }
 
 /**
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+
+
+
+
+
+
+
+
+
+
+
+
  * ### Challenge `processContains`
  * 
  * @instructions
@@ -198,9 +224,25 @@ function processProduct(/* CODE HERE */) {
  * "lady gaga" and `['foo', 'bar']` and `(bool) => bool ? 'nice!' : 'sad'`,
  * should return "sad".
 */
-function processContains(/* CODE HERE */) {
+function processContains(item, list, callback) {
   /* CODE HERE */
+  return callback(list.includes(item))
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /**
  * ### Challenge `processDuplicateFree`
@@ -225,6 +267,14 @@ function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS
   /* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */
 }
 
+
+
+
+
+
+
+
+
 /////////////// HIGHER-ORDER ARRAY METHODS ///////////////
 /////////////// HIGHER-ORDER ARRAY METHODS ///////////////
 
@@ -243,8 +293,11 @@ function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS
  * @returns an array with all the runners' full names in the following format: "Smith, John".
  * The full names appear in the array in the same order the runners appear in the `runners` array.
 */
-function getFullNames(/* CODE HERE */) {
+function getFullNames(runners) {
   /* CODE HERE */
+  let nameList = runners.map(a => `${a.last_name}, ${a.first_name}`);
+  return nameList;
+  
 }
 
 /**
