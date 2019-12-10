@@ -234,11 +234,10 @@ function processDuplicateFree(list, callback) {
   var unique = list.filter(function(item, pos) {
     return list.indexOf(item) == pos;
   });
-  callback
+  return callback(unique);
 }
-processDuplicateFree([1,2,2,4,5], function(result){
-  console.log(result);
-  })
+let doop = processDuplicateFree([1,1,2,2,3], (arr) => arr);
+console.log(doop)
 
 /////////////// HIGHER-ORDER ARRAY METHODS ///////////////
 /////////////// HIGHER-ORDER ARRAY METHODS ///////////////
